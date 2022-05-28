@@ -1,4 +1,4 @@
-<x-guest-layout>
+<x-layouts.guest>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -35,7 +35,7 @@
             <!-- Remember Me -->
             <div class="block mt-4">
                 <label for="remember_me" class="inline-flex items-center">
-                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" name="remember">
+                    <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-sky-600 shadow-sm focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50" name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
                 </label>
             </div>
@@ -53,4 +53,4 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-layouts.guest>
