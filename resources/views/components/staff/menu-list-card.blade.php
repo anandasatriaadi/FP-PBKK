@@ -3,7 +3,7 @@
         <div class="shadow-lg rounded-2xl p-4 bg-white w-full">
             <div class="flex">
                 <div class="w-1/4">
-                    <div class="font-bold bg-sky-500 rounded-md" style="padding-top: 60%">
+                    <div class="font-bold bg-slate-500 rounded-md" style="padding-top: 60%">
                     </div>
                 </div>
                 <div class="ml-4 w-3/4">

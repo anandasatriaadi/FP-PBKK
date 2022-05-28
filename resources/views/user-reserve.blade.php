@@ -34,7 +34,7 @@
                                 *
                             </span>
                         </label>
-                        <input type="text" id="required-name" name="email" placeholder="Michael Alexander" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"/>
+                        <input type="text" id="required-name" name="name" placeholder="Michael Alexander" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-email" class="text-gray-700">
@@ -43,7 +43,7 @@
                                 *
                             </span>
                         </label>
-                        <input type="email" id="required-email" name="email" placeholder="alexander@email.com" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"/>
+                        <input type="email" id="required-email" name="email" placeholder="alexander@email.com" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-phone" class="text-gray-700">
@@ -52,35 +52,38 @@
                                 *
                             </span>
                         </label>
-                        <input type="text" id="required-phone" name="email" placeholder="081 111 111 222" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"/>
+                        <input type="text" id="required-phone" name="phone" placeholder="081 111 111 222" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
                     </div>
                     <div class="w-full md:w-1/2 mx-auto">
-                        <label class="text-gray-700" for="table">
+                        <label class="text-gray-700" for="required-table">
                             Table Number
-                            <select id="table" class="block w-full py-2 px-3 border border-gray-300 bg-gray-50 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="table">
-                                <option value="">
-                                    Select an option
-                                </option>
-                                <option value="1">
-                                    1
-                                </option>
-                                <option value="2">
-                                    2
-                                </option>
-                                <option value="3">
-                                    3
-                                </option>
-                                <option value="4">
-                                    4
-                                </option>
-                                <option value="5">
-                                    5
-                                </option>
-                                <option value="6">
-                                    6
-                                </option>
-                            </select>
+                            <span class="text-red-500 required-dot">
+                                *
+                            </span>
                         </label>
+                        <select id="required-table" class="block w-full py-2 px-3 border border-gray-300 bg-gray-50 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="table">
+                            <option value="">
+                                Select an option
+                            </option>
+                            <option value="1">
+                                1
+                            </option>
+                            <option value="2">
+                                2
+                            </option>
+                            <option value="3">
+                                3
+                            </option>
+                            <option value="4">
+                                4
+                            </option>
+                            <option value="5">
+                                5
+                            </option>
+                            <option value="6">
+                                6
+                            </option>
+                        </select>
                     </div>
                     <div class="flex">
                         <button type="submit" class="mt-4 py-2 px-4 bg-sky-600 hover:bg-sky-700 focus:ring-sky-500 focus:ring-offset-sky-200 text-white w-full md:w-1/2 mx-auto transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
