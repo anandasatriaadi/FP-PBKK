@@ -26,9 +26,17 @@ Route::get('/dashboard/menu-list', function () {
     return view('admin-menu-list');
 })->middleware('auth', 'admin')->name('adminMenuList');
 
+Route::get('/dashboard/add-menu', function () {
+    return view('admin-add-menu');
+})->middleware('auth', 'admin')->name('adminAddMenu');
+
 Route::get('/dashboard/reservation', function () {
     return view('staff-reservation');
 })->middleware('auth', 'staff')->name('staffReservation');
+
+Route::get('/dashboard/order', function () {
+    return view('staff-order');
+})->middleware('auth', 'staff')->name('staffOrder');
 // ========================================================================
 //   END ::: ADMIN AND STAFF ROUTING
 // ========================================================================
