@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,9 +31,8 @@ Route::get('/dashboard/add-menu', function () {
     return view('admin-add-menu');
 })->middleware('auth', 'admin')->name('adminAddMenu');
 
-Route::get('/dashboard/reservation', function () {
-    return view('staff-reservation');
-})->middleware('auth', 'staff')->name('staffReservation');
+Route::get('/dashboard/reservation', [ReservationController::class, "staffIndex"])->middleware('auth', 'staff')->name('staffReservation');
+Route::post('/dashboard/reservation/complete', [ReservationController::class, "completeReservation"])->middleware('auth', 'staff')->name('completeReservation');
 
 Route::get('/dashboard/order', function () {
     return view('staff-order');
@@ -46,9 +46,8 @@ Route::get('/dashboard/order', function () {
 // ========================================================================
 //   START ::: USER ROUTING
 // ========================================================================
-Route::get('/reserve', function () {
-    return view('user-reserve');
-})->middleware('auth')->name('userReserve');
+Route::get('/reservation', [ReservationController::class, "userIndex"])->middleware('auth')->name('userReservation');
+Route::post('/reservation', [ReservationController::class, "store"])->name('userReservationStore');
 
 Route::get('/menu', function () {
     return view('user-menu');

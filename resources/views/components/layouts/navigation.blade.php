@@ -39,12 +39,12 @@
 
 
                         {{-- ======== START ::: User ======== --}}
-                        @if (Auth::user()->role == "" || Auth::user()->role == null)
+                        @if (Auth::user()->role == "user")
                         <x-nav-link :href="route('userMenu')" :active="request()->routeIs('userMenu')">
                             {{ __('Our Menu') }}
                         </x-nav-link>
 
-                        <x-nav-link :href="route('userReserve')" :active="request()->routeIs('userReserve')">
+                        <x-nav-link :href="route('userReservation')" :active="request()->routeIs('userReservation')">
                             {{ __('Reservation') }}
                         </x-nav-link>
                         @endif

@@ -25,16 +25,16 @@
                 <div class="pb-6 text-2xl font-bold text-center">
                     Reservation Form
                 </div>
-                @csrf
-                <form>
+                <form method="POST" action="{{route('userReservationStore')}}">
+                    @csrf
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-name" class="text-gray-700">
-                            Nama
+                            Name
                             <span class="text-red-500 required-dot">
                                 *
                             </span>
                         </label>
-                        <input type="text" id="required-name" name="name" placeholder="Michael Alexander" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
+                        <input type="text" id="required-name" name="name" placeholder="Michael Alexander" required class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent transition ease-in-out duration-200"/>
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-email" class="text-gray-700">
@@ -43,7 +43,7 @@
                                 *
                             </span>
                         </label>
-                        <input type="email" id="required-email" name="email" placeholder="alexander@email.com" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
+                        <input type="email" id="required-email" name="email" placeholder="alexander@email.com" required class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent transition ease-in-out duration-200"/>
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-phone" class="text-gray-700">
@@ -52,7 +52,7 @@
                                 *
                             </span>
                         </label>
-                        <input type="text" id="required-phone" name="phone" placeholder="081 111 111 222" class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent"/>
+                        <input type="text" id="required-phone" name="phone" placeholder="081 111 111 222" required class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent transition ease-in-out duration-200"/>
                     </div>
                     <div class="w-full md:w-1/2 mx-auto">
                         <label class="text-gray-700" for="required-table">
@@ -61,28 +61,15 @@
                                 *
                             </span>
                         </label>
-                        <select id="required-table" class="block w-full py-2 px-3 border border-gray-300 bg-gray-50 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500" name="table">
+                        <select id="required-table" required class="block w-full py-2 px-3 border border-transparent bg-gray-50 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 transition ease-in-out duration-200" name="table">
                             <option value="">
                                 Select an option
                             </option>
-                            <option value="1">
-                                1
-                            </option>
-                            <option value="2">
-                                2
-                            </option>
-                            <option value="3">
-                                3
-                            </option>
-                            <option value="4">
-                                4
-                            </option>
-                            <option value="5">
-                                5
-                            </option>
-                            <option value="6">
-                                6
-                            </option>
+                            @foreach ($tables as $table)
+                                <option value="{{ $table->id }}">
+                                    {{ $table->table_number }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="flex">
