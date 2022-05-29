@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('order_id');
             $table->foreignId('product_id');
             $table->integer('jumlah');
+            $table->timestamps();
         });
     }
 
