@@ -20,14 +20,14 @@
         </div>
         @if ($status == 1)
         <div class="flex flex-row gap-2">
-            <form class="flex-1" method="POST" action="{{route('completeReservation')}}">
+            <form class="flex-1" method="POST" action="{{route('staffCompleteReservation')}}">
                 @csrf
                 <input class="hidden" type="text" name="id" value="{{ $id }}">
                 <button type="submit" class="py-1 px-2 w-full bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg  cursor-pointer">
                     Complete
                 </button>
             </form>
-            <form class="flex-1" method="POST" action="{{route('completeReservation')}}">
+            <form class="flex-1" method="POST" action="{{route('staffCompleteReservation')}}">
                 @csrf
                 <input class="hidden" type="text" name="id" value="{{ $id }}">
                 <button type="submit" class="py-1 px-2 w-full bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg  cursor-pointer">

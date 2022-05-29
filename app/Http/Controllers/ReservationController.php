@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
-    public function userIndex() {
+    public function create() {
         $tables = Table::where('status', 1)->get();
 
         return view("user-reservation", [
@@ -25,9 +25,7 @@ class ReservationController extends Controller
         ]);
     }
 
-    // ========================================================================
-    //   STORE THE RESERVATION REQUEST
-    // ========================================================================
+    // ======== Store the Reservation Request ========
     public function store(Request $request) {
         // ======== Create Reservation ========
         Reservation::create([
@@ -44,7 +42,8 @@ class ReservationController extends Controller
 
         return redirect()->route("home");
     }
-    
+
+    // ======== Complete/Cancel Reservation ========
     public function completeReservation(Request $request) {
         Reservation::where('id', $request->id)->update(['status' => 0]);
         return redirect()->route("staffReservation")->with(["status" => "success", "msg" => "Reservation ".$request->id." completed."]);
