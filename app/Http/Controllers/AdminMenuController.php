@@ -24,7 +24,7 @@ class AdminMenuController extends Controller
      */
     public function create()
     {
-        return view("admin-add-menu");
+        return view("admin-menu-add");
     }
 
     /**
@@ -78,7 +78,7 @@ class AdminMenuController extends Controller
     public function edit($id)
     {
         // dd(Product::where('id', $id)->get());
-        return view("admin-edit-menu", ['menu' => Product::where('id', $id)->first()]);
+        return view("admin-menu-edit", ['menu' => Product::where('id', $id)->first()]);
     }
     
     /**
