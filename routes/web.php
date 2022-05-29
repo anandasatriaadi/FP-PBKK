@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminMenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
 
@@ -23,20 +24,30 @@ Route::get('/', function () {
 // ========================================================================
 //   START ::: ADMIN AND STAFF ROUTING
 // ========================================================================
-Route::get('/dashboard/menu-list', function () {
-    return view('admin-menu-list');
-})->middleware('auth', 'admin')->name('adminMenuList');
-
-Route::get('/dashboard/add-menu', function () {
-    return view('admin-add-menu');
-})->middleware('auth', 'admin')->name('adminAddMenu');
-
-Route::get('/dashboard/reservation', [ReservationController::class, "staffIndex"])->middleware('auth', 'staff')->name('staffReservation');
-Route::post('/dashboard/reservation/complete', [ReservationController::class, "completeReservation"])->middleware('auth', 'staff')->name('completeReservation');
-
-Route::get('/dashboard/order', function () {
-    return view('staff-order');
-})->middleware('auth', 'staff')->name('staffOrder');
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::get('/menu-list', [AdminMenuController::class, "index"])
+                ->middleware('auth', 'admin')->name('adminMenuList');
+    
+    Route::get('/add-menu', [AdminMenuController::class, "create"])
+                ->middleware('auth', 'admin')->name('adminAddMenu');
+    Route::post('/add-menu', [AdminMenuController::class, "store"])
+                ->middleware('auth', 'admin')->name('adminAddMenuStore');
+    Route::get('/edit-menu/{id}', [AdminMenuController::class, "edit"])
+                ->middleware('auth', 'admin')->name('adminEditMenu');
+    Route::put('/edit-menu/{id}', [AdminMenuController::class, "update"])
+                ->middleware('auth', 'admin')->name('adminEditMenuUpdate');
+    Route::delete('/delete-menu/{id}', [AdminMenuController::class, "destroy"])
+                ->middleware('auth', 'admin')->name('adminDeleteMenu');
+    
+    Route::get('/reservation', [ReservationController::class, "staffIndex"])
+                ->middleware('auth', 'staff')->name('staffReservation');
+    Route::post('/reservation/complete', [ReservationController::class, "completeReservation"])
+                ->middleware('auth', 'staff')->name('staffCompleteReservation');
+    
+    Route::get('/order', function () {
+        return view('staff-order');
+    })->middleware('auth', 'staff')->name('staffOrder');
+});
 // ========================================================================
 //   END ::: ADMIN AND STAFF ROUTING
 // ========================================================================
@@ -46,8 +57,10 @@ Route::get('/dashboard/order', function () {
 // ========================================================================
 //   START ::: USER ROUTING
 // ========================================================================
-Route::get('/reservation', [ReservationController::class, "userIndex"])->middleware('auth')->name('userReservation');
-Route::post('/reservation', [ReservationController::class, "store"])->name('userReservationStore');
+Route::get('/reservation', [ReservationController::class, "create"])
+            ->middleware('auth')->name('userReservation');
+Route::post('/reservation', [ReservationController::class, "store"])
+            ->middleware('auth')->name('userReservationStore');
 
 Route::get('/menu', function () {
     return view('user-menu');
