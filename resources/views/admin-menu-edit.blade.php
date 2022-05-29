@@ -59,7 +59,7 @@
                         </div>
                     </form>
                     
-                    <div class="md:pl-6  w-full md:w-1/2">
+                    <div class="md:pl-6 w-full md:w-1/2">
                         <div class="mb-6">
                             <div class="font-semibold">
                                 Previous Image

@@ -94,7 +94,7 @@
                     <a href="{{ route('login') }}" class="py-1 px-2 flex-1 bg-white hover:bg-gray-50 focus:ring-gray-200 focus:ring-offset-gray-200 text-gray-700 transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">Log in</a>
 
                     @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-2 py-1 px-2 flex-1 bg-sky-600 hover:bg-sky-700 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg  cursor-pointer">Register</a>
+                        <a href="{{ route('register') }}" class="ml-2 py-1 px-2 flex-1 bg-sky-600 hover:bg-sky-700 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">Register</a>
                     @endif
                 @endauth
             </div>

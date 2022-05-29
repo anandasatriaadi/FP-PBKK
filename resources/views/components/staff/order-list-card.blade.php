@@ -11,7 +11,7 @@
                     </span>
                 </div>
                 <hr>
-                <div class="my-4  w-full">
+                <div class="my-4 w-full">
                     <ol class="list-decimal list-inside">
                         <li>Ayam</li>
                         <li>Bebek</li>
