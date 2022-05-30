@@ -52,5 +52,13 @@
                 </x-button>
             </div>
         </form>
+        
+        <!-- Register Now -->
+        <div class="block mt-8 text-center text-sm">
+            Don't have an account yet?
+            <a href="{{ route("register") }}" class="text-sky-600 hover:text-sky-800">
+                Register now
+            </a>
+        </div>
     </x-auth-card>
 </x-layouts.guest>

@@ -19,10 +19,10 @@
                     </ol>
                 </div>
                 <div class="flex flex-row justify-end gap-2">
-                    <div class="py-1 px-2 bg-green-600 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
+                    <div class="py-1 px-2 bg-green-400 hover:bg-green-500 focus:ring-green-300 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
                         Complete Order
                     </div>
-                    <div class="py-1 px-2 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
+                    <div class="py-1 px-2 bg-red-400 hover:bg-red-500 focus:ring-red-300 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
                         Cancel Order
                     </div>
                 </div>

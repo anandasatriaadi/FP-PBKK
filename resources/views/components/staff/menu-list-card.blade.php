@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex flex-row justify-end gap-2">
                         <a href="{{ route('adminEditMenu', ['id' => $id]) }}">
-                            <div class="py-1 px-4 bg-orange-600 hover:bg-orange-700 focus:ring-orange-500 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
+                            <div class="py-1 px-4 bg-orange-400 hover:bg-orange-500 focus:ring-orange-300 focus:ring-offset-orange-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
                                 Edit
                             </div>
                         </a>
@@ -25,7 +25,7 @@
                         <form method="POST" action="{{ route('adminDeleteMenu', ['id' => $id]) }}">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="py-1 px-4 bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
+                            <button type="submit" class="py-1 px-4 bg-red-400 hover:bg-red-500 focus:ring-red-300 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
                                 Delete
                             </button>
                         </form>

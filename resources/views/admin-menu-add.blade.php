@@ -52,7 +52,7 @@
                             </label>
                         </div>
                         <div class="flex">
-                            <button type="submit" class="mt-4 py-2 px-4 w-full bg-sky-600 hover:bg-sky-700 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
+                            <button type="submit" class="mt-4 py-2 px-4 w-full bg-sky-300 hover:bg-sky-400 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
                                 Submit
                             </button>
                         </div>
