@@ -104,12 +104,13 @@ class AdminMenuController extends Controller
             $imageName = time().'_'.$request->image->getClientOriginalName();
             $uploadedImage = $request->file("image");
             $uploadedImage->move(public_path().'/images/', $imageName);
+            $validated['image'] = $imageName;
         } else {
             $validated['image'] = $curProduct->first()->image;
         }
 
         $curProduct->update($validated);
-        
+
         return redirect()->route("adminMenuList")
                     ->with("status", "success")
                     ->with("msg", "Menu has been edited!");
