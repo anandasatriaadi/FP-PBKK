@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CartProduct;
+use App\Models\Order;
+use App\Models\OrderProduct;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -124,6 +127,16 @@ class AdminMenuController extends Controller
      */
     public function destroy($id)
     {
+        CartProduct::where('product_id', $id)->delete();
+        $order_products = OrderProduct::where('product_id', $id)->get();
+        
+        foreach ($order_products as $order_product) {
+            if($order_product->order->order_product->count() == 1) {
+                $order_product->order->delete();
+            }
+        }
+        $order_products->delete();
+
         Product::where('id', $id)->first()->delete();
 
         return redirect()->route("adminMenuList")
