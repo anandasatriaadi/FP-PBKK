@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Reservation') }}
+            {{ __('navigation.user_reservation') }}
         </h2>
     </x-slot>
 
@@ -10,10 +10,10 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 @auth
                 <p>
-                    Hi <strong>{{ Auth::user()->name }}</strong>!
+                    {{ __('reservasi.hi') }} <strong>{{ Auth::user()->name }}</strong>!
                 </p>
                 <p>
-                    Please fill in this form to complete your reservation.
+                    {{ __('reservasi.fill_reservation') }}
                 </p>
                 @endauth
             </div>
@@ -23,13 +23,13 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg p-6">
                 <div class="pb-6 text-2xl font-bold text-center">
-                    Reservation Form
+                    {{ __('reservasi.form_reservation') }}
                 </div>
                 <form method="POST" action="{{route('userReservationStore')}}">
                     @csrf
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-name" class="text-gray-700">
-                            Name
+                            {{ __('reservasi.name') }}
                             <span class="text-red-500 required-dot">
                                 *
                             </span>
@@ -38,7 +38,7 @@
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-email" class="text-gray-700">
-                            Email
+                            {{ __('reservasi.email') }}
                             <span class="text-red-500 required-dot">
                                 *
                             </span>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="relative pb-4 w-full md:w-1/2 mx-auto">
                         <label for="required-phone" class="text-gray-700">
-                            Phone Number
+                            {{ __('reservasi.phone') }}
                             <span class="text-red-500 required-dot">
                                 *
                             </span>
@@ -56,14 +56,14 @@
                     </div>
                     <div class="w-full md:w-1/2 mx-auto">
                         <label class="text-gray-700" for="required-table">
-                            Table Number
+                            {{ __('reservasi.table') }}
                             <span class="text-red-500 required-dot">
                                 *
                             </span>
                         </label>
                         <select id="required-table" required class="block w-full py-2 px-3 border border-transparent bg-gray-50 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 transition ease-in-out duration-200" name="table">
                             <option value="">
-                                Select an option
+                                {{ __('reservasi.select') }}
                             </option>
                             @foreach ($tables as $table)
                                 <option value="{{ $table->id }}">
@@ -74,7 +74,7 @@
                     </div>
                     <div class="flex">
                         <button type="submit" class="mt-4 py-2 px-4 bg-sky-300 hover:bg-sky-400 focus:ring-sky-500 focus:ring-offset-sky-200 text-white w-full md:w-1/2 mx-auto transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg ">
-                            Submit
+                            {{ __('reservasi.submit') }}
                         </button>
                     </div>
                 </form>

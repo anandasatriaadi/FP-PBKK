@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Our Menus') }}
+            {{ __('navigation.user_menu') }}
         </h2>
     </x-slot>
 

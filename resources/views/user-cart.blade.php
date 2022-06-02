@@ -1,7 +1,7 @@
 <x-layouts.app>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Our Menus') }}
+            {{ __('navigation.user_cart') }}
         </h2>
     </x-slot>
 
@@ -13,13 +13,13 @@
                     <thead>
                         <tr>
                             <th scope="col" class="font-semibold px-3 py-3 border-b border-gray-100 text-gray-800 text-left text-sm">
-                                Menu Name
+                                {{ __('keranjang.name') }}
                             </th>
                             <th scope="col" class="font-semibold px-3 py-3 border-b border-gray-100 text-gray-800 text-left text-sm">
-                                Price
+                                {{ __('keranjang.price') }}
                             </th>
                             <th scope="col" class="font-semibold px-3 py-3 border-b border-gray-100 text-gray-800 text-left text-sm">
-                                Amount
+                                {{ __('keranjang.amount') }}
                             </th>
                             <th scope="col" class="font-semibold px-3 py-3 border-b border-gray-100 text-gray-800 text-left text-sm">
                                 Subtotal
@@ -76,7 +76,7 @@
                 <div class="flex pt-4">
                     <div class="ml-auto">
                         <button class="py-1 px-4 mr-1 bg-red-500 hover:bg-red-600 focus:ring-red-500 focus:ring-offset-red-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
-                            Cancel All
+                            {{ __('keranjang.cancel') }}
                         </button>
                         <a href="{{ route("userOrderStore") }}" class="py-1 px-4 ml-1 bg-green-500 hover:bg-green-600 focus:ring-green-500 focus:ring-offset-green-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
                             Checkout
@@ -90,11 +90,11 @@
     <div class="w-full flex justify-center items-center flex-1 py-4 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div>
             <div class="text-lg font-semibold">
-                Oops, looks like you cart is empty!
+                {{ __('keranjang.empty') }}
             </div>
             <div class="mt-6 flex justify-center">
                 <a href="{{ route("userMenu") }}" class="py-1 px-4 bg-sky-300 hover:bg-sky-400 focus:ring-sky-300 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">
-                    Order Now!
+                    {{ __('keranjang.order') }}
                 </a>
             </div>
         </div>
