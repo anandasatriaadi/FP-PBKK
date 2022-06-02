@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Reservation as EventsReservation;
 use App\Models\Reservation;
 use App\Models\Table;
 use Illuminate\Http\Request;
@@ -28,7 +29,7 @@ class ReservationController extends Controller
     // ======== Store the Reservation Request ========
     public function store(Request $request) {
         // ======== Create Reservation ========
-        Reservation::create([
+        $reservation = Reservation::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
@@ -36,6 +37,8 @@ class ReservationController extends Controller
             'user_id' => Auth::user()->id,
             'table_id' => $request->table
         ]);
+
+        event(new EventsReservation(Auth::user(), $reservation));
 
         // ======== Update table status to 1 (Reserved) ========
         Table::where('id', $request->table)->update(['status' => 0]);
@@ -46,6 +49,7 @@ class ReservationController extends Controller
     // ======== Complete/Cancel Reservation ========
     public function completeReservation(Request $request) {
         Reservation::where('id', $request->id)->update(['status' => 0]);
+        Reservation::where('id', $request->id)->first()->table->update(['status' => 1]);
         return redirect()->route("staffReservation")->with(["status" => "success", "msg" => "Reservation ".$request->id." completed."]);
     }
 }
