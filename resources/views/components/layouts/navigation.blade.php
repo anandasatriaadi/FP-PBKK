@@ -13,25 +13,25 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
+                        {{ __('navigation.home') }}
                     </x-nav-link>
                     @auth
                         {{-- ======== START ::: Staff and Admin ======== --}}
                         @if (Auth::user()->role == "staff" || Auth::user()->role == "admin")
                         <x-nav-link :href="route('staffReservation')" :active="request()->routeIs('staffReservation')">
-                            {{ __('Reservations List') }}
+                            {{ __('navigation.staff_reservation') }}
                         </x-nav-link>
                         @endif
 
                         @if (Auth::user()->role == "staff" || Auth::user()->role == "admin")
                         <x-nav-link :href="route('staffOrder')" :active="request()->routeIs('staffOrder')">
-                            {{ __('Orders List') }}
+                            {{ __('navigation.staff_order') }}
                         </x-nav-link>
                         @endif
 
                         @if (Auth::user()->role == "admin")
                         <x-nav-link :href="route('adminMenuList')" :active="request()->routeIs('adminMenuList')">
-                            {{ __('Menus List') }}
+                            {{ __('navigation.staff_menu') }}
                         </x-nav-link>
                         @endif
                         {{-- ======== END ::: Staff and Admin ======== --}}
@@ -41,66 +41,107 @@
                         {{-- ======== START ::: User ======== --}}
                         @if (Auth::user()->role == "user")
                         <x-nav-link :href="route('userMenu')" :active="request()->routeIs('userMenu')">
-                            {{ __('Our Menu') }}
+                            {{ __('navigation.user_menu') }}
                         </x-nav-link>
 
                         <x-nav-link :href="route('userReservation')" :active="request()->routeIs('userReservation')">
-                            {{ __('Reservation') }}
+                            {{ __('navigation.user_reservation') }}
                         </x-nav-link>
 
                         <x-nav-link :href="route('userCart')" :active="request()->routeIs('userCart')">
-                            {{ __('Cart') }}
+                            {{ __('navigation.user_cart') }}
                         </x-nav-link>
                         @endif
                         {{-- ======== END ::: User ======== --}}
                     @else
                     <x-nav-link :href="route('userMenu')" :active="request()->routeIs('userMenu')">
-                        {{ __('Our Menu') }}
+                        {{ __('navigation.user_menu') }}
                     </x-nav-link>
                     @endauth
                 </div>
             </div>
 
             @if (Route::has('login'))
-            <div class="pl-6 py-4 sm:block my-auto">
-                @auth
-                {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
-                <!-- Settings Dropdown -->
-                <div class="hidden sm:flex sm:items-center sm:ml-6">
-                    <x-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                            <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
-                                <div>{{ Auth::user()->name }}</div>
-
-                                <div class="ml-1">
-                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </button>
-                        </x-slot>
-
-                        <x-slot name="content">
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-
-                                <x-dropdown-link :href="route('logout')"
-                                        onclick="event.preventDefault();
-                                                    this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+            <div class="flex">
+                <div class="pl-6 py-4 flex items-center">
+                    <!-- Language Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    @php $locale = session()->get('locale'); @endphp
+                                    <div>
+                                        @switch($locale)
+                                            @case('en')
+                                            English
+                                            @break
+                                            @case('id')
+                                            Indonesia
+                                            @break
+                                            @default
+                                            English
+                                        @endswitch
+                                    </div>
+        
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+        
+                            <x-slot name="content">        
+                                <x-dropdown-link :href="route('setLocale', 'en')">
+                                    {{ __('English') }}
                                 </x-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-dropdown>
+                                <x-dropdown-link :href="route('setLocale', 'id')">
+                                    {{ __('Indonesia') }}
+                                </x-dropdown-link>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
                 </div>
-                @else
-                    <a href="{{ route('login') }}" class="py-1 px-2 flex-1 bg-white hover:bg-gray-50 focus:ring-gray-200 focus:ring-offset-gray-200 text-gray-700 transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">Log in</a>
-
-                    @if (Route::has('register'))
-                        <a href="{{ route('register') }}" class="ml-2 py-1 px-2 flex-1 bg-sky-300 hover:bg-sky-400 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">Register</a>
-                    @endif
-                @endauth
+                <div class="pl-6 py-4 flex items-center">
+                    @auth
+                    {{-- <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a> --}}
+                    <!-- Settings Dropdown -->
+                    <div class="hidden sm:flex sm:items-center sm:ml-6">
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+                                    <div>{{ Auth::user()->name }}</div>
+    
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+    
+                            <x-slot name="content">
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+    
+                                    <x-dropdown-link :href="route('logout')"
+                                            onclick="event.preventDefault();
+                                                        this.closest('form').submit();">
+                                        {{ __('common.logout') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
+                    </div>
+                    @else
+                        <a href="{{ route('login') }}" class="py-1 px-2 flex-1 bg-white hover:bg-gray-50 focus:ring-gray-200 focus:ring-offset-gray-200 text-gray-700 transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">{{ __('common.login') }}</a>
+    
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-2 py-1 px-2 flex-1 bg-sky-300 hover:bg-sky-400 focus:ring-sky-500 focus:ring-offset-sky-200 text-white transition ease-in duration-200 text-center text-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg cursor-pointer">{{ __('common.register') }}</a>
+                        @endif
+                    @endauth
+                </div>
             </div>
             @endif
 

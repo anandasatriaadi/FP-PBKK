@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminMenuController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\UserMenuController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
+Route::get('/locale/{locale}', [LocalizationController::class, "setLocale"])->name('setLocale');
 
 
 
