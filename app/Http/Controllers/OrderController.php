@@ -17,7 +17,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view("staff-order", ["orders" => Order::all()]);
+        return view("staff-order", ["orders" => Order::all()->reverse()]);
     }
 
     /**
@@ -46,7 +46,6 @@ class OrderController extends Controller
             'total_price' => 0
         ]);
 
-        dump($order);
         $totalPrice = 0;
         foreach ($carts as $cart) {
             OrderProduct::create([
@@ -57,13 +56,13 @@ class OrderController extends Controller
             $totalPrice += $cart->jumlah * $cart->product->price;
             // CartProduct::where('user_id', Auth::user()->id)->where('product_id', $cart->product->id)->get()->delete();
         }
-        CartProduct::where('user_id', Auth::user()->id)->delete();
-
+        
         $order->update([
             'total_price' => $totalPrice
         ]);
-
+        
         // ======== Clear cart_product of user ========
+        CartProduct::where('user_id', Auth::user()->id)->delete();
         
 
         // ======== Redirect user to orders page ========

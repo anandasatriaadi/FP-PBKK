@@ -22,17 +22,26 @@ class ReservationController extends Controller
         $reservations = Reservation::get();
 
         return view("staff-reservation", [
-            "reservations" => $reservations
+            "reservations" => $reservations->reverse()
         ]);
     }
 
     // ======== Store the Reservation Request ========
     public function store(Request $request) {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+            'date' => 'required',
+            'table' => 'required'
+        ]);
+
         // ======== Create Reservation ========
         $reservation = Reservation::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
+            'date' => $request->date,
             'status' => 1,
             'user_id' => Auth::user()->id,
             'table_id' => $request->table

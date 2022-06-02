@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->string('phone');
+            $table->dateTime('date');
             $table->foreignId('user_id');
             $table->foreignId('table_id');
             $table->tinyInteger('status');

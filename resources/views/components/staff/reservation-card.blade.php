@@ -1,4 +1,4 @@
-@props(['status' => 1, 'table' => "", 'name' => "", 'id' => ""])
+@props(['status' => 1, 'table' => "", 'date' => "", 'name' => "", 'id' => ""])
 
 <div class="w-full sm:w-1/2 lg:w-1/3 p-2">
     <div class="shadow-lg rounded-2xl p-4 bg-white w-full">
@@ -11,7 +11,13 @@
             </div>
             <div>
                 <span>
-                    Reserved by:
+                    Reserved for
+                </span>
+                <span class="font-bold">
+                    {{ date('d/m/Y', strtotime($date)) }}
+                </span>
+                <span>
+                    by
                 </span>
                 <span class="font-bold">
                     {{ $name }}

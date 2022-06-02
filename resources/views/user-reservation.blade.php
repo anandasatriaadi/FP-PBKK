@@ -54,6 +54,15 @@
                         </label>
                         <input type="text" id="required-phone" name="phone" placeholder="081 111 111 222" required class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent transition ease-in-out duration-200"/>
                     </div>
+                    <div class="relative pb-4 w-full md:w-1/2 mx-auto">
+                        <label for="required-date" class="text-gray-700">
+                            Reservation Date
+                            <span class="text-red-500 required-dot">
+                                *
+                            </span>
+                        </label>
+                        <input type="date" id="required-date" name="date" required class="rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-gray-50 text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-sky-600 focus:border-transparent transition ease-in-out duration-200"/>
+                    </div>
                     <div class="w-full md:w-1/2 mx-auto">
                         <label class="text-gray-700" for="required-table">
                             {{ __('reservasi.table') }}
