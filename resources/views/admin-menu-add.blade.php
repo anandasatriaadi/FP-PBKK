@@ -63,12 +63,35 @@
                         </div>
                         <div class="md:w-4/6">
                             <div class="font-bold bg-gray-200 rounded-md bg-cover bg-center relative" style="padding-top: 60%;">
-                                <img class="absolute top-0 right-0 bottom-0 left-0" src="" alt="">
+                                <img id='uploaded-image' class="absolute top-0 right-0 bottom-0 left-0" src="" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+ 
+        <script type="text/javascript">
+              
+        $(document).ready(function (e) {
+         
+           
+           $('#required-menu-image').change(function(){
+                    
+            let reader = new FileReader();
+         
+            reader.onload = (e) => { 
+         
+              $('#uploaded-image').attr('src', e.target.result); 
+            }
+         
+            reader.readAsDataURL(this.files[0]); 
+           
+           });
+           
+        });
+         
+        </script>
     </div>
 </x-layouts.dashboard>
