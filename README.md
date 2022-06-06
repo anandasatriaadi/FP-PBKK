@@ -1,64 +1,33 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# Final Project PBKK-B 2022
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# POIN-POIN IMPLEMENTASI
 
-## About Laravel
+## Laravel route, controller and middleware
+Pada poin ini implementasi `route` terbagi menjadi dua bagian yaitu untuk `Staff and Admin` dan untuk `user` biasa. Pada `route` sendiri juga terdapat gabungan dalam implementasi `middleware` yang umumnya digunakan untuk menuju suatu page yang membutuhkan login. Dalam setiap route terdapat penggunaan `controller`. Terdapat enam `controller` yang diimplementasikan dalam project ini. Untuk lokasi dari setiap implementasi yaitu `route` dapat diakses pada folder `routes/web.php`. Sedangkan untuk `controller dan middleware` dapat diakses pada folder `app/http`.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Laravel request, validation and response
+Pada poin ini, implementasi dari `request, validation, and response` dapat dilihat pada `controller` terutama dalam menu yang menggunakan CRUD. `Request` dilakukan untuk mendapatkan data yang dibutuhkan atau diinputkan. `Validation` digunakan untuk memvalidasi data yang diinputkan apakah sesuai dengan ketentuan masukan. Sedangkan `response` digunakan untuk memberikan aksi apa yang akan dilakukan setelah melakukan suatu kegiatan. Pada project ini `response` yang digunakan kebanyakan adalah `redirect`. Untuk lokasi dari implementasi poin ini adalah pada folder `app/http/Controllers` file `AdminMenu dan Reservation`.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Laravel model, eloquent and query builder
+Pada poin ini, implementasi dari `model and eloquent` untuk mendapatkan tabel yang telah dibuat dan saling mengubungkan atau relasi dari beberapa tabel yang saling berhubungan. Terdapat tujuh model yang dibuat pada project ini. Sedangkan untuk implementasi `query builder` dilakukan untuk melakukan query tertentu dalam database. Untuk lokasi dari setiap implementasi yaitu `model and eloquent` dapat diakses pada folder `rapp/Models`. Sedangkan untuk `query bulder` dapat diakses pada folder `app/http/Controllers`.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Laravel authentication and authorization
+Implementasi pada poin ini adalah adanya login dan autentikasi. Pada project ini, implementasinya dilakukan menggunakan starter kit `breeze`. Untuk implementasi dari poin ini dapat diakses pada folder `app/Http/Controllers/Auth/`.
 
-## Learning Laravel
+## Laravel localization and file storage
+Pada poin ini, implementasi dari `localization` adalah user dapat memilih penggunaan bahasa, yaitu `Indonesia dan Inggris`. Sedangkan untuk implementasi `file storage` adalah penyimpanan foto menu yang diupload dan disimpan dalam folder `public/images`. Untuk lokasi dari setiap implementasi yaitu `localization` dapat diakses pada file `app/Http/Controllers/LocalizationController.php`. Sedangkan untuk `file storage` dapat diakses pada file `app/Http/Controllers/AdminMenuController.php`.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Laravel view and blade component
+Pada implementasi `view and blade` dilakukan untuk membuat tampilan dari setiap page dan form yang ada pada project ini. Untuk lokasi dari implementasi `view and blade` dapat diakses pada folder `resources/views/`.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Laravel session and caching
+Implementasi pada poin ini terdapat pada setiap `flash message` pada menu yang menggunakan CRUD yaitu reservasi dan penambahan menu. Untuk lokasi dari implementasi `session and caching` dapat diakses pada file `app/Http/Controllers/AdminMenuController.php`.
 
-## Laravel Sponsors
+## Laravel feature testing and unit testing
+Pada poin ini dilakukan impementasi `unit testing` pada `store data` pengajuan reservasi dan penambahan menu. Sedangkan untuk `feature testing` dilakukan dengan pengujian akses `route` pada setiap fitur dan `store data` pengajuan reservasi dan penambahan menu. Pengujian dilakukan menggunakan perintah `php artisan test`. Untuk lokasi dari implementasi `unit testing` berada pada folder `tests/Unit`. Sedangkan untuk `feature testing` berada pada folder `tests/Feature/HTTP/Controllers`.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Laravel command and scheduling
+Implementasi `command and scheduling` pada poin saling berhubungan yang bertujuan untuk memberikan pengingat kepada user yang melakukan reservasi dengan mengirimkan email setiap jam `18.17`. Untuk lokasi dari implementasi `command` berada pada folder `app/Console/Commands`. Sedangkan untuk `scheduling` berada pada folder `app/Console/Kernel.php`.
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Laravel event and listener
+Implementasi `event and listener` bertujuan untuk memberikan informasi mengenai reservasi yang dilakukan oleh user. Untuk lokasi dari implementasi `event` berada pada folder `app/Events`. Sedangkan untuk `listener` berada pada folder `app/Listeners`.
