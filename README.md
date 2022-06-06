@@ -1,5 +1,12 @@
 # Final Project PBKK-B 2022
 
+| Nama | NRP | Github |
+| :--------- | :--------- | :--------- |
+| Aiffah Kiysa Waafi | 5025201202 | https://github.com/AiffahKiysa |
+| Dias Tri Kurniasari | 05111940000035 | https://github.com/DisDias |
+| Putu Ananda Satria Adi | 05111940000113 | https://github.com/anandasatriaadi |
+| Mohammad Thoriq Huda | 05111940000207 | https://github.com/ThoriqHuda |
+
 # POIN-POIN IMPLEMENTASI
 
 ## Laravel route, controller and middleware
