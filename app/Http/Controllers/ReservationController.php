@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Events\Reservation as EventsReservation;
+use App\Events\ReservationCreate;
 use App\Models\Reservation;
 use App\Models\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Event;
 
 class ReservationController extends Controller
 {
@@ -48,6 +50,8 @@ class ReservationController extends Controller
         ]);
 
         event(new EventsReservation(Auth::user(), $reservation));
+
+        Event::dispatch(new ReservationCreate());
 
         // ======== Update table status to 1 (Reserved) ========
         Table::where('id', $request->table)->update(['status' => 0]);

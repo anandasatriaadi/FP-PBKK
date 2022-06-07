@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Events\ReservationCreate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +13,10 @@ class Reservation extends Model
     protected $table = "reservations";
 
     protected $guarded = ['id'];
+
+    protected $dispatchesEvents = [
+        'created' => ReservationCreate::class
+    ];
 
     public function user(){
         return $this->belongsTo(User::class);

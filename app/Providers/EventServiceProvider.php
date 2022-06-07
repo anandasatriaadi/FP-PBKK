@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Events\Reservation;
+use App\Events\ReservationCreate;
+use App\Listeners\ReservationCacheListener;
 use App\Listeners\SendMailReservation;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -23,6 +25,10 @@ class EventServiceProvider extends ServiceProvider
         
         Reservation::class => [
             SendMailReservation::class,
+        ],
+
+        ReservationCreate::class => [
+            ReservationCacheListener::class
         ]
     ];
 
