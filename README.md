@@ -92,3 +92,6 @@ Implementasi `event and listener` bertujuan untuk memberikan informasi mengenai 
 **File Events and Listener:**
 - [app/Events/Reservation.php](app/Events/Reservation.php)
 - [app/Listeners/SendMailReservation.php](app/Listeners/SendMailReservation.php)<br/>
+
+## 11. Laravel Composer Package
+Laravel Composer package yang digunakan adalah laravel breeze untuk menambahkan fitur authentication yaitu login, register, reset password, verifikasi email dan konfirmasi password. Instalation breeze package dilakukan menggunakan composer `composer require laravel/breeze --dev`.
