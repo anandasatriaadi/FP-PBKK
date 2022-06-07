@@ -51,7 +51,11 @@ class ReservationController extends Controller
 
         event(new EventsReservation(Auth::user(), $reservation));
 
+        // ======== Caching submit reservation ========
         Event::dispatch(new ReservationCreate());
+        // $reservationCache = Cache('reservation', function(){
+        //     return Reservation::get();
+        // });
 
         // ======== Update table status to 1 (Reserved) ========
         Table::where('id', $request->table)->update(['status' => 0]);

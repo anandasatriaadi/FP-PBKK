@@ -65,10 +65,12 @@ Pada implementasi `view and blade` dilakukan untuk membuat tampilan dari setiap 
 - [resources/views/](resources/views/)<br/>
 
 ## 7. Laravel session and caching
-Implementasi pada poin ini terdapat pada setiap `flash message` pada menu yang menggunakan CRUD yaitu reservasi dan penambahan menu. Untuk lokasi dari implementasi `session and caching` dapat diakses pada file `app/Http/Controllers/AdminMenuController.php`.
+Implementasi session terdapat pada setiap `flash message` pada menu yang menggunakan CRUD yaitu reservasi dan penambahan menu. Untuk lokasi dari implementasi `session and caching` dapat diakses pada file `app/Http/Controllers/AdminMenuController.php`. Untuk implementasi caching terdapat ketika user melakukan submit reservasi akan ada cache yang berisi data reservasi user.
 
 **File Session & Caching:**
 - [app/Http/Controllers/AdminMenuController.php](app/Http/Controllers/AdminMenuController.php)<br/>
+- [app/Http/Controllers/ReservationController.php](app/Http/Controllers/ReservationController.php)<br/>
+- [app/Listeners/ReservationCacheListener.php](app/Listeners/ReservationCacheListener.php)<br/>
 
 ## 8. Laravel feature testing and unit testing
 Pada poin ini dilakukan impementasi `unit testing` pada `store data` pengajuan reservasi dan penambahan menu. Sedangkan untuk `feature testing` dilakukan dengan pengujian akses `route` pada setiap fitur dan `store data` pengajuan reservasi dan penambahan menu. Pengujian dilakukan menggunakan perintah `php artisan test`. Untuk lokasi dari implementasi `unit testing` berada pada folder `tests/Unit`. Sedangkan untuk `feature testing` berada pada folder `tests/Feature/Http/Controllers`.
